@@ -12,6 +12,9 @@ and open the template in the editor.
   <title>Pagina de Presentacion de Programacion Web</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+#more {display: none;}
+</style>
 </head>
 <body class="p-3 mb-2 bg-secondary bg-gradient text-white">
   <div class="border border-white p-3 mb-2 bg-dark bg-gradient text-white rounded">
@@ -80,14 +83,28 @@ and open the template in the editor.
 
                     <img  id="principal" alt="" class="rounded mx-auto d-block">
                     <h1 id="noticia_1" data-noticia="1"></h1>
-                    <p id="noticia_1_text" data-noticia="11"><span id="dots">...</span>
-              
-                      <span id="more"></p> 
-                      <button onclick="read()" id="myBtn">Read more</button>
+                    <p id="noticia_1_text" data-noticia="11">
+                     
+                    </p> 
+<a class="border border-white p-3 mb-2 bg-dark bg-gradient text-white rounded" onclick="javascript:ShowHide('HiddenDiv')">read more</a>
+                     <div class="mid" id="HiddenDiv" style="display: none;">
+                      <p id="detalle1"> </p>
+</div>
+
                     <h1 id="noticia_2" data-noticia="2"></h1>
                     <p id="noticia_2_text" data-noticia="12"></p>
+                    <a class="border border-white p-3 mb-2 bg-dark bg-gradient text-white rounded" onclick="javascript:ShowHide('HiddenDiv2')">read more</a>
+                               <div class="mid" id="HiddenDiv2" style="display: none;">
+                      <p id="detalle2"> </p>
+</div>
+
                     <h1 id="noticia_3" data-noticia="3"></h1>
                     <p id="noticia_3_text" data-noticia="13"></p>
+                    <a class="border border-white p-3 mb-2 bg-dark bg-gradient text-white rounded" onclick="javascript:ShowHide('HiddenDiv3')">read more</a>
+                               <div class="mid" id="HiddenDiv3" style="display: none;">
+                      <p id="detalle3"> </p>
+</div>
+
 
                   </div>
                 </div>
@@ -210,6 +227,7 @@ and open the template in the editor.
                     document.getElementById("principal").src=noticia[0].img;
                     document.getElementById("noticia_1").textContent=noticia[0].titulo;
                     document.getElementById("noticia_1_text").textContent=noticia[0].descripcion;
+
                     document.getElementById("noticia_2").textContent=noticia[1].titulo;
                     document.getElementById("noticia_2_text").textContent=noticia[1].descripcion;
                     document.getElementById("noticia_3").textContent=noticia[2].titulo;
@@ -227,26 +245,23 @@ and open the template in the editor.
                     document.getElementById("deporte_2").textContent=dep[1].titulo;
 
                     document.getElementById("deporte_3").textContent=dep[2].titulo;
-
-                    function read() {
-  var dots = document.getElementById("dots");
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("myBtn");
-
-  if (dots.style.display === "none") {
-    dots.style.display = "inline";
-    btnText.innerHTML = "Read more";
-    moreText.style.display = "none";
-  } else {
-    dots.style.display = "none";
-    btnText.innerHTML = "Read less";
-    moreText.style.display = "inline";
-  }
+                                        document.getElementById("detalle1").textContent=noticia[0].detalle;
+                                        document.getElementById("detalle2").textContent=noticia[1].detalle;
+                                        document.getElementById("detalle3").textContent=noticia[2].detalle;
+ </script>
+<script type="text/javascript">
+function ShowHide(divId)
+{
+if(document.getElementById(divId).style.display == 'none')
+{
+document.getElementById(divId).style.display='block';
 }
-
-
-                  </script>
-
+else
+{
+document.getElementById(divId).style.display = 'none';
+}
+}
+</script>
                   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
                 </body>
                 </html>
