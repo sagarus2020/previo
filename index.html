@@ -74,12 +74,12 @@ and open the template in the editor.
     <div class="p-2 bg-secondary border">
 
     <img  id="principal" alt="">
-<h1></h1>
-<p></p> 
-<h1></h1>
-<p></p>
-<h1></h1>
-<p></p>
+<h1 id="noticia_1" data-noticia="1"></h1>
+<p id="noticia_1_text" data-noticia="11"></p> 
+<h1 id="noticia_2" data-noticia="2"></h1>
+<p id="noticia_2_text" data-noticia="12"></p>
+<h1 id="noticia_3" data-noticia="3"></h1>
+<p id="noticia_3_text" data-noticia="13"></p>
 
       </div>
     </div>
@@ -133,7 +133,7 @@ and open the template in the editor.
     });
 
 var noticia=JSON.parse(window.localStorage.getItem('noticia'));
-console.log(noticia);
+console.log(noticia[0].img);
 
             function generarT(data){
       window.localStorage.setItem('tegno', JSON.stringify(data));
@@ -161,7 +161,18 @@ var tegno=JSON.parse(window.localStorage.getItem('tegno'));
 
 var dep=JSON.parse(window.localStorage.getItem('dep'));
 
-          document.getElementById(principal).src=noticia;
+
+
+document.getElementById("principal").src=noticia[0].img;
+document.getElementById(noticia_1).src=noticia[0].titulo;
+document.getElementById(noticia_1_text).src=noticia[0].categoria;
+
+document.getElementById(noticia_2).src=noticia[1].titulo;
+document.getElementById(noticia_2text).src=noticia[1].categoria;
+document.getElementById(noticia_3).src=noticia[2].titulo;
+
+document.getElementById(noticia_3_text).src=noticia[2].categoria;
+
 
 
 </script>
